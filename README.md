@@ -42,7 +42,9 @@ This code has been tested on Python 3.8.
     ```
 2. Install `mmcv`
     ```bash
-    pip install mmcv-full==1.7.1
+    pip install wheel
+    pip install -U openmim
+    mim install mmcv-full==1.7.1
     cd segmentation
     pip install -v -e .
     ```
@@ -55,6 +57,7 @@ This code has been tested on Python 3.8.
     ```bash
     cd ../lineDetection
     cd model/_cdht
+    pip install ninja
     python setup.py build 
     python setup.py install --user
     ```
@@ -86,7 +89,9 @@ agroNav_LineDetection_val.txt
 
 4. Specify the training and validation data paths in config.yml.
 
-5. Train the model.
+5. Add the .../agronav directory and .../model/_cdht directory to your PYTHONPATH environment variable. 
+
+6. Train the model.
 ```sh
 python train.py
 ```
@@ -100,7 +105,7 @@ python train.py
     ```bash
    python e2e_inference_image.py
     ```
-5. The final results with the centerlines will be saved in `./inference/output_ceterline`, the intermediate results are saved in `./inference/temp` and `./inference/output`.
+5. The final results with the centerlines will be saved in `./inference/output_centerline`, the intermediate results are saved in `./inference/temp` and `./inference/output`.
 
 *To run the semantic segmentation and line detection models independently, use `./segmentation/inference_image.py` and `./lineDetection/inference.py`*.
 
